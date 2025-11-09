@@ -4,15 +4,25 @@ import { db } from "../../../../firebase/config"
 import {doc, getDoc} from "firebase/firestore"
 import { Course } from "../../../../models/Courses";
 
+type PageProps = {
+  params: Promise<{ id: string }>; // Tell TS params is a Promise
+};
 
-export default async function Home(id: string){
-    //I want to get the course from the firestore databsae using the id
-    const courseId = id;
 
+export default async function Home({params}: PageProps){
+
+    //Server side logic 
+
+    const resolvedParams = await params;
+
+    const courseId = resolvedParams.id;
     const courseRef = doc(db, "courses", courseId);
     const courseSnap = await getDoc(courseRef);
 
     const course = courseSnap.data() as Course;
     
-    <CoursePage course={course}></CoursePage>
+   return (
+    <CoursePage course={course} />
+   )
+    
 }
