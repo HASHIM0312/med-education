@@ -6,6 +6,7 @@ import type { Course } from "../models/Courses";
 export default function Dashboard({ courses = [] as Course[] }) {
     return (
         <div className="grid min-h-screen grid-cols-[260px_1fr]">
+
             <aside className="sticky top-0 h-screen border-r border-gray-200 p-6">
                 <div className="mb-6">
                     <div className="text-lg font-bold">Edu Dashboard</div>
@@ -21,10 +22,9 @@ export default function Dashboard({ courses = [] as Course[] }) {
                         <li><a className="text-white-900" href="#">Settings</a></li>
                     </ul>
                 </nav>
-
-               
-
             </aside>
+
+
              <main className="p-8">
                     <h1 className="text-2xl font-bold mb-6">Courses</h1>
                     {
@@ -48,10 +48,8 @@ export default function Dashboard({ courses = [] as Course[] }) {
                         )
                     }
                 </main>
-
         </div>
-
-
+        
     )
 }
 
