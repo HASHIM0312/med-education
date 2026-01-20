@@ -18,12 +18,7 @@ export default async function Home() {
       modules: data.modules || []
     }
   })
-
   
-
-
-
-
   return (
        <Dashboard courses={courses as any}/>
   );

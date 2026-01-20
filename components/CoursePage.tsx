@@ -3,6 +3,7 @@
 import { Course } from "../models/Courses"
 import { useState } from "react";
 import Dropdown from "../components/Dropdown";
+import Link from "next/link";
 
 export default function CoursePage({ course }: { course: Course }) { // Get the course, and then map it/destructure it to a course object
 
@@ -21,10 +22,13 @@ export default function CoursePage({ course }: { course: Course }) { // Get the 
                         {hoveredModule === module.moduleTitle && (
                             <div className="divide-y animate-in fade-in slide-in-from-top-2 duration-600">
                                 {module.lessons.map((lesson) => (
+                                    <Link href={}>
                                     <div key={lesson.videoId} className="p-4 flex flex-col">
                                         <span className="text-lg">{lesson.lessonTitle}</span>
                                         <span className="text-lg ml-4 text-gray-500 text-sm">{lesson.videoId}</span>
                                     </div>
+                            </Link>
+                                    
                                 ))}
                             </div>
                         )}
